@@ -4,17 +4,20 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Login {
 
 	private JFrame frmLogin;
-	private JTextField textField;
-	private JPasswordField passwordField;
+	private JTextField txtUsername;
+	private JPasswordField txtPassword;
 
 	/**
 	 * Launch the application.
@@ -60,16 +63,26 @@ public class Login {
 		lblPassword.setBounds(33, 103, 79, 14);
 		frmLogin.getContentPane().add(lblPassword);
 		
-		textField = new JTextField();
-		textField.setBounds(145, 54, 131, 20);
-		frmLogin.getContentPane().add(textField);
-		textField.setColumns(10);
+		txtUsername = new JTextField();
+		txtUsername.setBounds(145, 54, 131, 20);
+		frmLogin.getContentPane().add(txtUsername);
+		txtUsername.setColumns(10);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(145, 100, 131, 20);
-		frmLogin.getContentPane().add(passwordField);
+		txtPassword = new JPasswordField();
+		txtPassword.setBounds(145, 100, 131, 20);
+		frmLogin.getContentPane().add(txtPassword);
 		
 		JButton btnSignin = new JButton("Signin");
+		btnSignin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if ((txtUsername.getText().equals("user") )&& (txtPassword.getText().equals("1234")))
+				{
+				JOptionPane.showMessageDialog(null,"correct credentials");
+				}
+			
+				
+			}
+		});
 		btnSignin.setBounds(65, 149, 89, 23);
 		frmLogin.getContentPane().add(btnSignin);
 		
