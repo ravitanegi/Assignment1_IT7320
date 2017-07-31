@@ -77,7 +77,10 @@ public class Login {
 			public void actionPerformed(ActionEvent arg0) {
 				if ((txtUsername.getText().equals("user") )&& (txtPassword.getText().equals("1234")))
 				{
-				JOptionPane.showMessageDialog(null,"correct credentials");
+				
+					Chat_Box navigate = new Chat_Box();
+					navigate.setVisible(true);
+					frmLogin.dispose();
 				}
 			
 				
@@ -87,6 +90,13 @@ public class Login {
 		frmLogin.getContentPane().add(btnSignin);
 		
 		JButton btnSignup = new JButton("Signup");
+		btnSignup.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Sign_up_page navigate = new Sign_up_page();
+				navigate.setVisible(true);
+				frmLogin.dispose();
+			}
+		});
 		btnSignup.setBounds(176, 149, 89, 23);
 		frmLogin.getContentPane().add(btnSignup);
 	}
