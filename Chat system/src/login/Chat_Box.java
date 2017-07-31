@@ -11,6 +11,8 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JList;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Chat_Box extends JFrame {
 
@@ -77,6 +79,10 @@ public class Chat_Box extends JFrame {
 		textField_2.setColumns(10);
 		
 		JButton btnButton = new JButton("Connect");
+		btnButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnButton.setBounds(335, 7, 149, 23);
 		contentPane.add(btnButton);
 		
