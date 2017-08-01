@@ -16,7 +16,6 @@ public class Sign_up_page extends JFrame {
 
 	private JPanel contentPane;
 	private JPasswordField passwordField;
-	private JPasswordField passwordField_1;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -69,10 +68,6 @@ public class Sign_up_page extends JFrame {
 		lblPassword.setBounds(22, 120, 46, 14);
 		contentPane.add(lblPassword);
 		
-		JLabel lblConfirmPassword = new JLabel("Confirm Password");
-		lblConfirmPassword.setBounds(22, 145, 86, 14);
-		contentPane.add(lblConfirmPassword);
-		
 		JButton btnSignIn = new JButton("Submit");
 		btnSignIn.setBounds(54, 180, 89, 23);
 		contentPane.add(btnSignIn);
@@ -80,10 +75,6 @@ public class Sign_up_page extends JFrame {
 		passwordField = new JPasswordField();
 		passwordField.setBounds(137, 117, 144, 20);
 		contentPane.add(passwordField);
-		
-		passwordField_1 = new JPasswordField();
-		passwordField_1.setBounds(137, 142, 144, 20);
-		contentPane.add(passwordField_1);
 		
 		textField = new JTextField();
 		textField.setBounds(137, 92, 86, 20);
