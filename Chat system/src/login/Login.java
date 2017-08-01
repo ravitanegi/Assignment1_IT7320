@@ -11,6 +11,11 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
 public class Login {
@@ -75,15 +80,32 @@ public class Login {
 		JButton btnSignin = new JButton("Signin");
 		btnSignin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if ((txtUsername.getText().equals("user") )&& (txtPassword.getText().equals("1234")))
+				int result=0;
+				try {
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/database","root","");
+
+					Statement stmt=con.createStatement();
+					ResultSet rs=stmt.executeQuery("Select 1 from userinfo where Username = '" + txtUsername.getText() + "' And Password = '"+ txtPassword.getText() +"' ");
+					while(rs.next()) {
+						result++;
+					}
+						
+				} catch (Exception e) {
+					e.printStackTrace();
+				} 
+				if (result>0)
 				{
 				
 					Chat_Box navigate = new Chat_Box();
 					navigate.setVisible(true);
 					frmLogin.dispose();
 				}
+				else
+				{
+					JOptionPane.showMessageDialog(null,"Incorrect Credentials");
+				}
 			
-				
 			}
 		});
 		btnSignin.setBounds(65, 149, 89, 23);
