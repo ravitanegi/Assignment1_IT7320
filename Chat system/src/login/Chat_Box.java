@@ -21,7 +21,6 @@ public class Chat_Box extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-	private JTextField textField_4;
 
 	/**
 	 * Launch the application.
@@ -119,17 +118,8 @@ public class Chat_Box extends JFrame {
 		btnSend.setBounds(356, 285, 128, 23);
 		contentPane.add(btnSend);
 		
-		JLabel lblFile = new JLabel("File");
-		lblFile.setBounds(20, 326, 46, 14);
-		contentPane.add(lblFile);
-		
-		textField_4 = new JTextField();
-		textField_4.setBounds(66, 323, 266, 20);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
-		
-		JButton btnSend_1 = new JButton("Send");
-		btnSend_1.setBounds(356, 322, 89, 23);
+		JButton btnSend_1 = new JButton("SignOut");
+		btnSend_1.setBounds(356, 322, 128, 23);
 		contentPane.add(btnSend_1);
 	}
 }

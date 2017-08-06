@@ -1,7 +1,6 @@
 package login;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -18,7 +17,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
-public class Login {
+public class Login extends Dbconnection{
 
 	private JFrame frmLogin;
 	private JTextField txtUsername;
@@ -80,20 +79,11 @@ public class Login {
 		JButton btnSignin = new JButton("Signin");
 		btnSignin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int result=0;
-				try {
-					Class.forName("com.mysql.jdbc.Driver");
-					Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/database","root","");
-
-					Statement stmt=con.createStatement();
-					ResultSet rs=stmt.executeQuery("Select 1 from userinfo where Username = '" + txtUsername.getText() + "' And Password = '"+ txtPassword.getText() +"' ");
-					while(rs.next()) {
-						result++;
-					}
-						
-				} catch (Exception e) {
-					e.printStackTrace();
-				} 
+			//add the code here
+				int result;
+				
+				result=dbInfoFetch("Select * From userinfo Where username = '"+ txtUsername.getText() +"' And password = '"+ txtPassword.getText() +"' ");
+				
 				if (result>0)
 				{
 				

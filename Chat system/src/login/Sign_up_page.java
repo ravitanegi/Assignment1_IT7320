@@ -11,14 +11,17 @@ import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
 
 public class Sign_up_page extends JFrame {
 
 	private JPanel contentPane;
-	private JPasswordField passwordField;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JPasswordField password;
+	private JTextField username;
+	private JTextField dob;
+	private JTextField name;
 
 	/**
 	 * Launch the application.
@@ -68,35 +71,42 @@ public class Sign_up_page extends JFrame {
 		lblPassword.setBounds(22, 120, 46, 14);
 		contentPane.add(lblPassword);
 		
-		JButton btnSignIn = new JButton("Submit");
-		btnSignIn.setBounds(54, 180, 89, 23);
-		contentPane.add(btnSignIn);
+		JButton btnSubmit = new JButton("Submit");
+		btnSubmit.setBounds(54, 180, 89, 23);
+		contentPane.add(btnSubmit);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(137, 117, 144, 20);
-		contentPane.add(passwordField);
+		password = new JPasswordField();
+		password.setBounds(137, 117, 144, 20);
+		contentPane.add(password);
 		
-		textField = new JTextField();
-		textField.setBounds(137, 92, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		username = new JTextField();
+		username.setBounds(137, 92, 86, 20);
+		contentPane.add(username);
+		username.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(137, 43, 86, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		dob = new JTextField();
+		dob.setBounds(137, 43, 86, 20);
+		contentPane.add(dob);
+		dob.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(137, 18, 86, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		name = new JTextField();
+		name.setBounds(137, 18, 86, 20);
+		contentPane.add(name);
+		name.setColumns(10);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Male");
-		rdbtnNewRadioButton.setBounds(137, 67, 86, 23);
-		contentPane.add(rdbtnNewRadioButton);
+		JComboBox gender = new JComboBox();
+		gender.addItem("Male");
+		gender.addItem("Female");
+		gender.setSelectedItem(null);
+		gender.setToolTipText("");
+		gender.setBounds(137, 68, 75, 20);
+		contentPane.add(gender);
 		
-		JRadioButton rdbtnFemale = new JRadioButton("Female");
-		rdbtnFemale.setBounds(227, 67, 109, 23);
-		contentPane.add(rdbtnFemale);
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Dbconnection dbcon = new Dbconnection();
+				dbcon.writeToDb(name.getText(),username.getText(),dob.getText(),gender.getSelectedItem() + "",password.getText());
+			}
+		});
 	}
 }
