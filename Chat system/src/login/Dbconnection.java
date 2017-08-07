@@ -14,7 +14,7 @@ public class Dbconnection {
 	
 	public static int dbInfoFetch(String Query) {
 
-		String dbUrl= "jdbc:mysql://localhost:3306/database";
+		String dbUrl= "jdbc:mysql://localhost:3306/userdetail";
 		String user ="root";
 		String password ="";
 	    int result=0;
@@ -41,7 +41,7 @@ public class Dbconnection {
 	public void writeToDb(String Name,String Username,String Dob,String Gender,String Password)
 	{
 	try {
-		String dbUrl= "jdbc:mysql://localhost:3306/database";
+		String dbUrl= "jdbc:mysql://localhost:3306/userdetail";
 		String user ="root";
 		String password ="";
 
