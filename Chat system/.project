@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-<<<<<<< HEAD
-	<name>chatserver</name>
+	<name>Chat system</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -14,14 +13,5 @@
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
-=======
-	<name>Assignment1_IT7320</name>
-	<comment></comment>
-	<projects>
-	</projects>
-	<buildSpec>
-	</buildSpec>
-	<natures>
->>>>>>> refs/remotes/origin/master
 	</natures>
 </projectDescription>
